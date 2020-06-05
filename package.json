@@ -1,0 +1,29 @@
+{
+  "name": "nextjs-starter",
+  "version": "1.0.0",
+  "description": "nextjs starter",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rakeshtagadghar/nextjs-starter.git"
+  },
+  "keywords": [
+    "nextjs"
+  ],
+  "author": "rakesh tagadghar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rakeshtagadghar/nextjs-starter/issues"
+  },
+  "homepage": "https://github.com/Rakeshtagadghar/nextjs-starter#readme",
+  "dependencies": {
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
