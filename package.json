@@ -5,8 +5,20 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "rimraf ./.next && next build",
+    "start": "next start",
+    "lint-check": "eslint src --max-warnings 0",
+    "lint-fix": "eslint src --max-warnings 0 --fix",
+    "prettier-check": "prettier --check \"src/**/*.{js,jsx,json,md,mdx,css,scss}\" --loglevel=error",
+    "prettier-fix": "prettier --write \"src/**/*.{js,jsx,json,md,mdx,css,scss}\" --loglevel=error",
+    "stylelint-check": "stylelint src/**/*.{css,scss,js} --max-warnings 0",
+    "stylelint-fix": "stylelint src/**/*.{css,scss,js} --max-warnings 0  --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-check  && npm run prettier-check && npm run stylelint-check",
+      "pre-push": "npm run lint-check && npm run prettier-check && npm run stylelint-check"
+    }
   },
   "repository": {
     "type": "git",
@@ -23,7 +35,31 @@
   "homepage": "https://github.com/Rakeshtagadghar/nextjs-starter#readme",
   "dependencies": {
     "next": "^9.4.4",
+    "next-redux-wrapper": "^6.0.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.8",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "stylelint": "^13.6.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-recommended": "^3.0.0"
   }
 }

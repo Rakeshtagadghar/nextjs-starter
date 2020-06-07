@@ -6,7 +6,7 @@ import { addCounts } from '../store/count/action';
 import { wrapper } from '../store/store';
 import { serverRenderClock, startClock } from '../store/tick/action';
 
-const Index = props => {
+const Other = props => {
   useEffect(() => {
     const timer = props.startClock();
 
@@ -15,10 +15,10 @@ const Index = props => {
     };
   }, [props]);
 
-  return <Page title="Index Page" linkTo="/other" />;
+  return <Page title="Other Page" linkTo="/" />;
 };
 
-export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
+export const getServerSideProps = wrapper.getServerSideProps(async ({ store }) => {
   store.dispatch(serverRenderClock(true));
   store.dispatch(addCounts());
 });
@@ -30,4 +30,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Index);
+export default connect(null, mapDispatchToProps)(Other);
